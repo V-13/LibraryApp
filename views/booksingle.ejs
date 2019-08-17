@@ -46,7 +46,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1><%=h1%>
+        <h1>Library
           <p class="lead"></p>
         </h1>
       </div>
@@ -81,30 +81,60 @@
       
       <div class="panel">
         <div class="panel-body">
-         <% for (var i=0;i<book.length;i++){%>
-           
+          
+          
+          
+          <!--/stories-->
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-title" href="#"><img alt="" src="<%= book[i].picture%>" style="width:100px;height:100px" class="img-circle"></a>
+              <a class="story-title" href="#"><img alt="" src="<%= books.picture %>" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
-              <h3><%= book[i].title%></h3>
+              
               <div class="row">
                 <div class="col-xs-9">
-                  <h4><%= book[i].genre%></h4>
-                  <h5><%= book[i].author%></h5>
-                  <a href="/booksingle/<%= i %>" class="btn btn-primary">Readmore...</a>
+                        <h4><strong>Title: </strong><%= books.title%></h4>
+                        <h4><strong>genre: </strong><%= books.genre %></h4>
+                        <h4><strong>author: </strong><%= books.author %></h4>
+                    
+
+
+
+
+                  
+                  </div>
                 <div class="col-xs-3"></div>
               </div>
               <br><br>
             </div>
           </div>
           <hr>
-          <% } %>
+          
+        
+                  
+          
+
+         
+          
+         
+          
+          
+          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
+        
+          
         </div>
       </div>
-  
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>
+</div>
+                                                
+                                                                                
+<hr>
+
 <div class="container" id="footer">
   <div class="row">
     <div class="col col-sm-12">
