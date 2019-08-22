@@ -12,7 +12,14 @@ app.use(bodyParser.json());
 app.use(Express.static(__dirname+"/public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
-Mongoose.connect("mongodb://localhost:27017/bookdb");
+Mongoose.connect("mongodb://localhost:27017/bookdb",{ useNewUrlParser: true });
+ module.exports = function(req, res, next) {
+      if (!mongoose.Types.ObjectId.isValid(req.params.id))
+      return res.status(404).send('Invalid ID.');
+    
+    
+     next();
+    }
 
 const bookModel = Mongoose.model("bookdetails",{
         title:String,
@@ -103,11 +110,7 @@ app.get('/authors',(req,res)=>{
 });
 
 
-app.get('/booksingle/:id',(req,res)=>{
 
-    const x= req.params.id;
-    res.render('booksingle',{books:book[x],title:"bookdetails"});
-});
 
 app.get('/authorsingle/:id',(req,res)=>{
     const x=req.params.id;
@@ -153,7 +156,7 @@ app.get('/bookall',(req,res)=>{
     });
 });
 
-const APIurl="http://localhost:3005/bookall"
+const APIurl="http://localhost:3005/bookall";
 
 app.get('/books',(req,res)=>{
 
@@ -163,6 +166,42 @@ app.get('/books',(req,res)=>{
         res.render('books',{book:book147,title:"Books",h1:"Books"});
     });
 });
+
+app.get('/bookone',(req,res)=>{
+    var item=req.query.q;
+
+    var result = bookModel.findOne({_id:item},(error,data)=>{
+        if(error)
+        {
+            throw error;
+            res.send(error);                                            //api recieve data from database
+        }
+        else
+        {
+            res.send(data);
+        }
+    });
+});
+
+const APIurl2 = "http://localhost:3005/bookone";
+
+app.get('/booksingle/:id',(req,res)=>{
+    const x=req.params.id;
+    request(APIurl2+"/?q="+x,(error,response,body)=>{
+        var book=JSON.parse(body);
+        console.log(book);
+        res.render('booksingle',{books:book});
+    
+// const x= req.params.id;
+ //res.render('booksingle',{books:book[x],title:"bookdetails"});
+  
+  });
+
+});
+
+
+
+
 
 
 app.listen(3005,()=>{
