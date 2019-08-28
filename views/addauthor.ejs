@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+       
+    <nav class="navbar navbar-dark bg-dark">
+                
+        <% for(var i=0;i<nav.length;i++){%>
+      
+        <a href="<%=nav[i].link%>"><%=nav[i].title%></a>
+    
+      
+     <%}%> 
+
+
+    
+</nav>
+
+
+
+
+
+
+
+
+
+    <form action="/read1" method="POST">
+        <table class="table">
+            <tr><td> Author</td><td><input type="text" class="form-control" name="title"/></td></tr>
+            <tr><td>picture</td><td><input type="text" class="form-control" name="picture"/></td></tr>
+            <tr><td>genre</td><td><input type="text" class="form-control" name="genre"/></td></tr>
+            <tr><td>Country</td><td><input type="text" class="form-control"  name="author"/></td> </tr>
+            
+            <tr><td><button type="reset" class="btn btn-warning" name="reset">RESET</button></td>
+                 <td><button type="submit" class="btn btn-success" name="submit" >SUBMIT</button></td>
+         </tr>
+
+
+
+
+                 
+        </table>
+        </form>
+
+</body>
+</html>
