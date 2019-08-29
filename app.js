@@ -108,6 +108,13 @@ const UserModel= Mongoose.model("users",{
 
 
 
+const MovieModel= Mongoose.model("moviedetails",{
+    movie:String,
+    actor:String,
+    actress:String,
+    director:String
+})
+
 
 nav=[{link:'/',title:"Home"},{link:'/books',title:"books"},{link:'/authors',title:"authors"},{link:'/books',title:"viewbooks"},{link:'/addbook',title:"Addbook"},
 {link:'/addauthors',title:"Addauthor"},{link:'/updatebooks',title:"updatebooks"},
@@ -491,8 +498,44 @@ app.post('/employeelogin',(req,res)=>{
 
 
 
+app.post('/movieadd',(req,res)=>{
+    var movie =MovieModel(req.body)
+    var result=movie.save((error,data)=>{
+        if (error)
+        {                                                                   //movie angular question api for add
+            throw error;
+            res.send(error);
+        }
+        else
+        {
+            res.send("<script>alert('Movie added successfully')</script>");
+        }
+    });
+});
 
 
+app.get('/movieall',(req,res)=>{
+    var result=MovieModel.find((error,data)=>{
+        if(error)
+        {
+            throw error;                                //movie angular question viewing
+            res.send(error);
+        }
+        else
+        {
+            res.send(data);
+        }
+    });
+});
+
+
+
+ 
+
+
+
+
+    
 
 
 
