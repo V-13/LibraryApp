@@ -204,7 +204,7 @@ app.get('/authorall',(req,res)=>{
 
 
 
- const APIurl3="http://localhost:3005/authorall";
+ const APIurl3="http://casestudylibrary.herokuapp.com/authorall";
 
 
 
@@ -238,7 +238,7 @@ app.get('/authorone',(req,res)=>{
 });
 
 
-const APIurl4="http://localhost:3005/authorone";
+const APIurl4="http://casestudylibrary.herokuapp.com/authorone";
 
 
 app.get('/authorsingle/:id',(req,res)=>{
@@ -293,7 +293,7 @@ app.get('/bookall',(req,res)=>{
     });
 });
 
-const APIurl="http://localhost:3005/bookall";
+const APIurl="http://casestudylibrary.herokuapp.com/bookall";
 
 app.get('/books',(req,res)=>{
 
@@ -320,7 +320,7 @@ app.get('/bookone',(req,res)=>{
     });
 });
 
-const APIurl2 = "http://localhost:3005/bookone";
+const APIurl2 = "http://casestudylibrary.herokuapp.com/bookone";
 
 app.get('/booksingle/:id',(req,res)=>{
     const x=req.params.id;
@@ -359,7 +359,7 @@ app.get('/updateAPI',(req,res)=>{
     })
 })
 
-const APIurl8 = "http://localhost:3005/updateAPI";
+const APIurl8 = "http://casestudylibrary.herokuapp.com/updateAPI";
 
 app.post('/bookupdate',(req,res)=>{
     var item1 = req.body.title;
@@ -397,7 +397,7 @@ app.get('/deleteAPI',(req,res)=>{
     })
 })
 
-const APIurl6 = "http://localhost:3005/deleteAPI"
+const APIurl6 = "http://casestudylibrary.herokuapp.com/deleteAPI"
 
 app.post('/bookdelete',(req,res)=>{
     var item = req.body.title;
@@ -458,7 +458,7 @@ app.get('/loginAPI',(req,res)=>{
     })
 })
 
-const APIurl5 = "http://localhost:3005/loginAPI"
+const APIurl5 = "http://casestudylibrary.herokuapp.com/loginAPI"
 
 app.post('/employeelogin',(req,res)=>{
     var item1 = req.body.euname;
