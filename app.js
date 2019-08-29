@@ -500,7 +500,7 @@ app.post('/employeelogin',(req,res)=>{
 
 
 
-app.listen(3005,()=>{
+app.listen(process.env.PORT||3005,()=>{
     console.log("server running on 3005")
 }
 );
