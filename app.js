@@ -529,7 +529,20 @@ app.get('/movieall',(req,res)=>{
 });
 
 
-
+app.post('/moviesearch',(req,res)=>{
+    var item=req.body.movie;
+    var result=MovieModel.find({movie:item},(error,data)=>{
+        if(error)                                                 //movie angular question
+        {
+            throw error;
+            res.send(error)
+        }
+        else
+        {
+            res.send(data)
+        }
+    });
+});
  
 
 
